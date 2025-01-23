@@ -26,6 +26,9 @@ class BrowserManager:
         except FileNotFoundError as e:
             logging.warning(f"警告: {e}")
 
+        bp = os.getenv('BROWSER_PATH')
+        if bp:
+            co.set_browser_path(bp)
         co.set_user_agent(
             os.getenv('BROWSER_USER_AGENT', "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.6723.92 Safari/537.36")
         )
